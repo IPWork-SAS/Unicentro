@@ -11,7 +11,7 @@
     $password = 'prueba';
     $port = '9998';
     $nombre = $_SESSION['nombre'];
-    $url = 'http://'.$_SESSION['ip_ap'].':'.$port;
+    $url = 'http://'.$_SESSION['ip_ap'].':'.$port.'/login';
 ?>
 
 <!DOCTYPE html>

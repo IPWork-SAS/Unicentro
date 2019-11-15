@@ -10,7 +10,7 @@
     $username = 'prueba';
     $password = 'prueba';
     $port = '9998';
-    $url = 'http://'.$_SESSION['ip_ap'].':'.$port;
+    $url = 'https://'.$_SESSION['ip_ap'].':'.$port.'/login';
     $nombre = $_SESSION['nombre'];
 ?>
 

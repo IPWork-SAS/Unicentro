@@ -8,8 +8,9 @@
     $_SESSION['ip_cliente'] = isset($_REQUEST['uip']) ? $_REQUEST['uip'] : "";
     $_SESSION['ssid'] = isset($_REQUEST['ssid']) ? $_REQUEST['ssid'] : "";
 
-    $validacion = new Validacion();
-    $url = $validacion->getUrlRedirection($_SESSION['mac_cliente']); 
+    // $validacion = new Validacion();
+    // $url = $validacion->getUrlRedirection($_SESSION['mac_cliente']); 
   
-    header($url);
+    // header($url);
+    header ('Location: vistas/formulario.php');
 ?>  

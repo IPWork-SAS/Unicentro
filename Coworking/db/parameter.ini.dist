@@ -1,0 +1,6 @@
+[database]
+    host = "localhost"
+    port = ""
+    user = "root"
+    password = ""
+    name = "publicidad_a_2019_campania" 

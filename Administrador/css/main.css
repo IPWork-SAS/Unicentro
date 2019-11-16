@@ -1,0 +1,212 @@
+
+@import url('https://fonts.googleapis.com/css?family=Ubuntu');
+
+* {
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;  
+    font-family: 'Ubuntu', sans-serif;
+}
+
+body {
+    height: 100vh;
+    position: relative;
+    text-align: center;
+}
+
+.background { 
+    width: 100%;
+    height: 100%;
+    background-image: url("../img/background.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: fixed; 
+    filter: brightness(70%);
+}
+
+.container-main {
+    position: relative; 
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: auto;   
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+}
+
+.container-logo {
+    width: 100%; 
+    margin-bottom: 10%;    
+}
+
+.container-logo img{
+    margin-bottom: 10px;
+    width: 300px;   
+}
+
+.container-logo h3 {
+    font-size: 2rem;
+    color: #242424;
+}
+
+.container-form h2 {
+    font-size: 1.5rem;
+    color: white;
+    margin-bottom: 2rem;   
+}
+
+.container-form h3 {
+    color: crimson;
+}
+
+.field-button,
+.field-password,
+.field-usuario {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.field-usuario input,
+.field-password input{
+    background: transparent;
+    border: #ffffff 2px solid;
+    font-size: 25px;
+    height: 45px;    
+    align-items: center;
+    border-radius: 5px;
+    margin-left: 3%;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    margin-right: 3%;
+    color: #ffffff;
+   
+}
+
+
+
+
+input::-webkit-input-placeholder {
+    color: #ffffff;
+    text-align: center;
+}
+input:focus::-webkit-input-placeholder {
+    color: transparent;
+}
+
+/* Firefox < 19 */
+input:-moz-placeholder {
+    color: #ffffff;
+    text-align: center;
+}
+input:focus:-moz-placeholder {
+    color: transparent;
+}
+
+/* Firefox > 19 */
+input::-moz-placeholder {
+    color: #ffffff;
+    text-align: center;
+}
+input:focus::-moz-placeholder {
+    color: transparent;
+}
+
+/* Internet Explorer 10 */
+input:-ms-input-placeholder {
+    color: #ffffff;
+    text-align: center;
+}
+input:focus:-ms-input-placeholder {
+    color: transparent;
+}
+
+
+.field-button input {
+    height: 45px;
+    width: 60%;
+    border-radius: 5px;
+    border: none;
+    background-color:  #f1bc2d;
+    font-size: 16px;
+    color: #242424;
+    font-weight: 700;
+    cursor: pointer;
+    border-radius: 5px; 
+    margin-top: 1.2rem;    
+}
+
+@media (min-width: 1027px) and (max-width: 1400px) {
+
+    .container-logo {
+        width: 20%;
+        margin-bottom: 5%;
+    }
+    
+   
+}
+
+@media (min-width: 1024px) and (max-width: 1026px) {
+    .container-form h2 {
+        font-size: 50px;
+        margin-bottom: 5rem;   
+    } 
+    
+    .container-form h3 {
+        font-size: 4rem;  
+    } 
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .container-form h2 {
+        margin-bottom: 5rem;   
+    }  
+}
+
+@media (min-width: 411px) and (max-width: 767px) {
+    .container-form h2 {
+        margin-bottom: 3rem;   
+    }     
+    
+    .container-logo img {
+        margin-bottom: 10px;
+        width: 200px;
+    }
+}
+
+
+@media (min-width: 360px) and (max-width: 410px) {
+
+    .container-form h2 {
+        margin-bottom: 3rem;   
+    } 
+
+    .container-logo img {
+        margin-bottom: 10px;
+        width: 200px;
+    }
+
+    .field-usuario input,
+    .field-password input{        
+        font-size: 20px;          
+    }
+}
+
+@media (min-width: 320px) and (max-width: 359px) {
+
+    .container-logo img {
+        margin-bottom: 10px;
+        width: 200px;
+    }
+    
+    .field-usuario input,
+    .field-password input{        
+        font-size: 20px;          
+    }
+}
+
+

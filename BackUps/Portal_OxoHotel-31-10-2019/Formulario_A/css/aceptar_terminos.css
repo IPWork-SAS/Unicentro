@@ -1,0 +1,542 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    height: 100vh;
+    position: relative;
+    text-align: center;  
+}
+
+.background { 
+    width: 100%;
+    height: 100%;
+    background-image: url("../img/background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: fixed; 
+    filter: brightness(60%);
+}
+
+.container-main {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40%;
+    height: auto;
+    background-color:rgba(255, 255, 255, 0.31);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    overflow: auto;
+}
+
+
+.container-logo-portal {
+    width: 80%; 
+    margin-top: 3%;    
+}
+
+.container-logo-portal img{
+    width: 150px;    
+}
+
+.container-logo-portal p {
+    color: #000000;
+    font-weight: 700;
+    margin-top: 20px;
+    font-size: 25px;
+}
+
+.container-logo-portal h2 {
+    color: #000000;
+    font-weight: 700;
+    margin-top: 20px;
+    font-size: 25px;
+}
+
+
+.container-logo-portal h3 {
+    color: #000000;
+    font-weight: 700;
+    font-size: 17px;
+    padding-top: 10px;
+}
+
+.container-form {
+    width: 100%;
+    height: 100%; 
+    position: relative; 
+    margin-top: 3%;
+}   
+
+.field-name,
+.field-email,
+.field-telefono,
+.field-edad,
+.field-sexo {
+    background: transparent;
+    border: black 1px solid;
+    font-size: 20px;
+    height: 45px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 5px;
+    margin-left: 3%;
+    margin-top: 3%;
+    margin-bottom: 3%;
+    margin-right: 3%;
+    color: black;
+}
+
+.field-name i,
+.field-email i,
+.field-telefono i,
+.field-edad i,
+.field-sexo i{ 
+    padding: 10px;
+    cursor: pointer;
+}
+
+.field-name input,
+.field-email input,
+.field-telefono input,
+.field-edad input,
+.field-sexo select {
+    background:transparent;
+    border: none;
+    flex: 1;
+    height: 100%;
+    outline: none;
+    font-size: 13px;
+}
+
+.field-sexo select {
+    font-weight: 500;
+    font-size: 17px;
+}
+
+.field-sexo select:focus {
+
+    font-size: 17px;
+}
+
+.field-sexo select::selection {
+
+    font-size: 17px;
+}
+
+.input-group-check {
+    margin-bottom: 20px;
+}
+
+.input-group-check a {
+    padding: 15px 2px 0px 5px;
+    font-weight: 700;
+    color: black;
+    font-size: medium;
+}
+
+.field-btn-conectar {
+    margin-bottom: 5%;
+}
+
+.btn-conectar {
+    height: 45px;
+    width: 94%;
+    border-radius: 5px;
+    border: none;
+    background-color:  #005153;
+    font-size: 16px;
+    color: #fbfeff;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.btn-conectar:hover,
+.btn-conectar:focus {
+  background: #f1d02d;
+}
+
+.popup {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0rem;
+    right: 0rem;
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 2;
+    visibility: hidden;
+    opacity: 0;
+    overflow: hidden;
+    transition: .64s ease-in-out;
+  }
+  .popup-inner {
+    position: relative;
+    bottom: -100vw;
+    right: -100vh;
+    display: flex;
+    align-items: center;
+    max-width: 800px;
+    max-height: 600px;
+    width: 60%;
+    height: 80%;
+    background-color: #fff;
+    -webkit-transform: rotate(32deg);
+            transform: rotate(32deg);
+    transition: .64s ease-in-out;
+  }
+
+  .popup__text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 4rem;
+    max-height: calc(100vh - 200px);
+    overflow-y: auto;
+  }
+  .popup__text h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+    color: #0A0A0A;
+  }
+  .popup__text p {
+    font-size: .875rem;
+    color: #686868;
+    line-height: 1.5;
+  }
+  .popup:target {
+    visibility: visible;
+    opacity: 1;
+  }
+  .popup:target .popup-inner {
+    bottom: 0;
+    right: 0;
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+  }
+  .popup__close {
+    position: absolute;
+    right: -1rem;
+    top: -1rem;
+    width: 3rem;
+    height: 3rem;
+    font-size: .875rem;
+    font-weight: 300;
+    border-radius: 100%;
+    background-color: #0A0A0A;
+    z-index: 4;
+    color: #fff;
+    line-height: 3rem;
+    text-align: center;
+    cursor: pointer;
+    text-decoration: none;
+  }
+
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: #000000;
+    font-weight: 700;
+    font-size: 17px;
+  }
+  ::-moz-placeholder { /* Firefox 19+ */
+    color: #000000;
+    font-weight: 700;
+    font-size: 17px;
+  }
+  :-ms-input-placeholder { /* IE 10+ */
+    color: #000000;
+    font-weight: 700;
+    font-size: 17px;
+  }
+  :-moz-placeholder { /* Firefox 18- */
+    color: #000000;
+    font-weight: 700;
+    font-size: 17px;
+  }
+
+
+
+
+@keyframes shake {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    50% {
+        transform: translate(-50%, -50%) rotate(10deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+}
+
+
+
+@media (min-width: 1024px) and (max-width: 1026px) {
+    .container-main {
+        width: 85%;
+    }
+
+    .container-logo-portal img {
+        width: 350px;
+    }
+
+    .container-logo-portal h3 {
+        font-size: 35px;
+    }
+
+    .field-edad,
+    .field-email,
+    .field-name,
+    .field-telefono,
+    .btn-conectar,
+    .field-sexo {
+        height: 70px;
+        font-size: 30px;
+    }
+
+    .field-edad input,
+    .field-email input,
+    .field-name input,
+    .field-telefono input {
+        height: 60px;
+        font-size: 35px;
+    }
+
+    .field-sexo select {
+        font-size: 30px;
+    }
+
+    ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+        color: #000000;
+        font-weight: 700;
+        font-size: 35px;
+      }
+      ::-moz-placeholder { /* Firefox 19+ */
+        color: #000000;
+        font-weight: 700;
+        font-size: 35px;
+      }
+      :-ms-input-placeholder { /* IE 10+ */
+        color: #000000;
+        font-weight: 700;
+        font-size: 35px;
+      }
+      :-moz-placeholder { /* Firefox 18- */
+        color: #000000;
+        font-weight: 700;
+        font-size: 35px;
+      }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+    .container-main {
+        width: 85%;
+    }
+
+    .container-logo-portal img {
+        width: 200px;
+    }
+
+    .container-logo-portal h3 {
+        font-size: 35px;
+    }
+
+    .field-edad,
+    .field-email,
+    .field-name,
+    .field-telefono,
+    .btn-conectar,
+    .field-sexo {
+        height: 60px;
+        font-size: 25px;
+    }
+
+    .field-edad input,
+    .field-email input,
+    .field-name input,
+    .field-telefono input,
+    .field-sexo select {
+        height: 60px;
+        font-size: 25px;
+    }
+
+    ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+
+        font-size: 25px;
+      }
+      ::-moz-placeholder { /* Firefox 19+ */
+
+        font-size: 25px;
+      }
+      :-ms-input-placeholder { /* IE 10+ */
+
+        font-size: 25px;
+      }
+      :-moz-placeholder { /* Firefox 18- */
+
+        font-size: 25px;
+      }
+
+      .popup__text {
+        padding: 1.2rem;
+    }
+
+    .container_terminos h2 {
+        padding-bottom: 10px;
+        margin-bottom: 30px;
+    }
+}
+
+@media (min-width: 411px) and (max-width: 767px) {
+    .container-main {
+        width: 85%;
+    }
+
+    .container-logo-portal img {
+        width: 200px;
+    }
+
+    .container-logo-portal h3 {
+        font-size: 23px;
+    }
+
+    .field-edad,
+    .field-email,
+    .field-name,
+    .field-telefono,
+    .btn-conectar,
+    .field-sexo {
+        height: 50px;
+    }
+
+    .field-edad input,
+    .field-email input,
+    .field-name input,
+    .field-telefono input {
+        font-size: 25px;
+    }
+
+    .field-sexo select {
+        font-size: 20px;
+    }
+
+    ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+
+        font-size: 20px;
+      }
+      ::-moz-placeholder { /* Firefox 19+ */
+
+        font-size: 20px;
+      }
+      :-ms-input-placeholder { /* IE 10+ */
+
+        font-size: 20px;
+      }
+      :-moz-placeholder { /* Firefox 18- */
+
+        font-size: 20px;
+      }
+
+      .popup-inner {
+        width: 85%;
+    }
+
+    .popup__text {
+        padding: 1.2rem;
+    }
+
+    .container_terminos h2 {
+        padding-bottom: 10px;
+        margin-bottom: 30px;
+    }
+}
+
+
+@media (min-width: 360px) and (max-width: 410px) {
+    .container-main {
+        width: 85%;
+    }
+
+    .container-logo-portal img {
+        width: 150px;
+    }
+
+    .field-edad input,
+    .field-email input,
+    .field-name input, 
+    .field-telefono input {
+        font-size: 20px;    
+    }
+
+    .popup-inner {
+        width: 85%;
+    }
+
+    .popup__text {
+        padding: 1.2rem;
+    }
+
+    .container_terminos h2 {
+        padding-bottom: 10px;
+        margin-bottom: 30px;
+    }
+}
+
+@media (min-width: 320px) and (max-width: 359px) {
+    .container-main {
+        width: 85%;
+    }
+
+    .container-logo-portal img {
+        width: 100px;
+    }
+
+    .field-edad input,
+    .field-email input,
+    .field-name input, 
+    .field-telefono input {
+        font-size: 19px;    
+    }
+
+    .popup-inner {
+        width: 85%;
+    }
+
+    .popup__text {
+        padding: 1.2rem;
+    }
+
+    .container_terminos h2 {
+        padding-bottom: 10px;
+        margin-bottom: 30px;
+    }
+}
+
+
+

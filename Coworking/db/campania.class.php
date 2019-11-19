@@ -10,7 +10,18 @@
 
         public function validarMac($mac = '') {
             return $this::retrieveBymac_cliente($mac, Orm::FETCH_ONE);
+        } 
+        
+        public function getNameUserByMac($mac = '') {
+            $user = $this::retrieveBymac_cliente($mac, Orm::FETCH_ONE);
+            if(isset($user)) {
+                return $user->nombre;
+            } else  {
+                return '';
+            }            
         }
 
-     
+        public function getUserByMac($mac = '') {
+            return $this::retrieveBymac_cliente($mac, Orm::FETCH_ONE);
+        } 
     }

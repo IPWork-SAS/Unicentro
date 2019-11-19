@@ -4,7 +4,7 @@
     class Validacion {
         public function getUrlRedirection($mac = '') {
             $campania = new Campania();
-            $entries = $campania->validarUser($mac);
+            $entries = $campania->validarMac($mac);
             if(empty($entries)) {   
                 return 'Location: vistas/formulario.php';
             } else {

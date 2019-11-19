@@ -38,3 +38,9 @@ a:hover {
 .btn-conect:hover {
     color: #a08258;
 }
+
+@media(max-width: 320px) {
+    .form-control-sm {
+        height: calc(1.2rem + .5rem + 2px);
+    }
+}

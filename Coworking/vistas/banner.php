@@ -1,17 +1,31 @@
 <?php
+     include_once "../db/campania.class.php";
     session_start();
-    if (isset($_SESSION['i'])) {
-        $lang = $_SESSION["i"];
+    
+    if(isset($_REQUEST['i'])) {
+        $_SESSION['i'] = $_REQUEST['i'];
+        $lang = $_REQUEST['i'];
     } else {
-        $lang = 'es';
-    }   
+        if (isset($_SESSION['i'])) {
+            $lang = $_SESSION["i"];
+        } else {
+            $lang = 'es';
+        }  
+    }
+
     include_once("../lang/{$lang}.php"); 
     
     $username = 'prueba';
     $password = 'prueba';
-    $port = '9998';
-    $url = 'https://'.$_SESSION['ip_ap'].':'.$port.'/login';
-    $nombre = $_SESSION['nombre'];
+    $port = '9997';
+    $url = 'http://'.$_SESSION['ip_ap'].':'.$port.'/login';
+
+    if(isset($_SESSION['mac_cliente'])) {
+        $campania = new Campania();
+        $nombre = $campania->getNameUserByMac($_SESSION['mac_cliente']);
+    } else {
+        $nombre = 'a nuestra red WIFI';
+    }
 ?>
 
 <!DOCTYPE html>
@@ -39,41 +53,45 @@
 
 </head>
 <body>
+    <div class="selector-idioma">
+        <?php if ($lang['lang'] == 'es'){ ?>
+            <div class="icono-idioma">
+                <a href="../vistas/banner.php?i=en">
+                    <img src="../vendor/flag-icon/flags/4x3/us.svg" alt="">
+                </a>
+                <span>EN</span>
+            </div>
+        <?php } else { ?>
+            <div class="icono-idioma">
+                <a href="../vistas/banner.php?i=es"><img src="../vendor/flag-icon/flags/4x3/es.svg" alt=""></a>
+                <span>ES</span>
+            </div>
+        <?php } ?>
+    </div>
     <div class="container">
         <div class="row h-100">
             <div class="col-sm-12 my-auto">
                 <div class="card"> 
                     <div class="logo">
                         <img src="../img/logo-uc.png" alt="">
-                        <p><?=$lang['titulo_banner']?></p>
-                        <h4>Bienvenido <?php echo $nombre ?></h4>
+                        <p><?=$lang['bienvenido_usuario'].$nombre.'!'?></p>
                     </div>
                     <div class="container-carrusel">
                         <div class="slider carrousel">
                             <div class="banner-img">
                                 <img
                                 sizes="(min-width: 400px) 80vw, 100vw"
-                                srcset="../img/bolera1.jpg 375w,
-                                        ../img/bolera1.jpg 1500w"
+                                srcset="../img/banner_movil_1_400x400.jpg 500w,
+                                        ../img/banner_web_1.jpg 1500w"
                                 alt="">
                             </div>
                             <div class="banner-img">
                                 <img
                                 sizes="(min-width: 400px) 80vw, 100vw"
-                                srcset="../img/casino1.jpg 375w,
-                                        ../img/casino1.jpg 1500w"
+                                srcset="../img/banner_movil_2_400x400.jpg 500w,
+                                        ../img/banner_web_2.jpg 1500w"
                                 alt="">
                             </div>
-                                
-                            <div class="banner-img">
-                                <img
-                                sizes="(min-width: 400px) 80vw, 100vw"
-                                srcset="../img/cine1.jpg 375w,
-                                        ../img/cine1.jpg 1500w"
-                                alt="">
-                            </div>                              
-                           
-                            
                         </div>
                     </div>
                     <form class="field-btn-conectar" action="<?= $url?>" method="POST">

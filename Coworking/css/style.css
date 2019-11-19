@@ -1,14 +1,25 @@
-@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+/* 
+@font-face {
+    font-family: "HelveticaFont", sans-serif;
+    src: url("../fonts/HelveticaFont/HelveticaLTStd-Blk.otf") format("opentype");    
+} */
+
+
+@font-face {
+    font-family: 'Montserrat', sans-serif;
+    src: url('https://fonts.googleapis.com/css?family=Montserrat');    
+}
+
 
 * {
     margin: 0;
     box-sizing: border-box;
-    padding: 0;
-    font-family: 'Montserrat', sans-serif;
+    padding: 0;    
 }
 
 html {
-    background-image: url(../img/work.jpg);
+    background-image: url(../img/background.jpg);
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -74,7 +85,7 @@ html, body {
 }
 
 .logo img {
-    width: 150px;
+    width: 120px;
     margin: 1%;
 }
 
@@ -103,6 +114,16 @@ html, body {
 
     .icono-idioma img {
         width: 3rem;
+    }
+}
+
+@media (max-width: 320px) {
+    .logo img {
+        width: 100px;
+    }
+
+    .logo p {
+        font-size: 1rem;
     }
 }
 

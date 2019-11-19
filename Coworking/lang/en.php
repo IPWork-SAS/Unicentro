@@ -17,6 +17,7 @@
         "terminos_link" => "Accept Terms and Conditions",
         "btn_continuar" => "Continue",
         "titulo_banner" => "Connect and enjoy our WIFI network.",
-        "btn_conectar" => "Conect"
+        "btn_conectar" => "Conect",
+        "bienvenido_usuario" => "Welcome "
     );
 ?>

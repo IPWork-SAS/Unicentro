@@ -9,19 +9,18 @@
     $mac_ap = isset($_SESSION['mac_ap']) ? trim($_SESSION['mac_ap']) : "";  
     $mac_cliente = isset($_SESSION['mac_cliente']) ? trim($_SESSION['mac_cliente']) : "";  
     $ip_cliente = isset($_SESSION['ip_cliente']) ? trim($_SESSION['ip_cliente']) : "";  
-    $ssid = isset($_SESSION['ssid']) ? trim($_SESSION['ssid']) : "";
-
-     
+    $ssid = isset($_SESSION['ssid']) ? trim($_SESSION['ssid']) : "";     
 
     // Some of these attributes come from hidden fields.
 	$nombre = isset($_POST['nombre']) ? removeAccents(trim($_POST['nombre'])) : "";
     $_SESSION['nombre']=$_POST['nombre'];
+    $apellidos= isset($_POST['apellidos']) ? removeAccents(trim($_POST['apellidos'])) : "";
 	$email = isset($_REQUEST['email']) ? removeAccents(trim($_REQUEST['email'])) : "";
 	$edad = isset($_REQUEST['edad']) ? trim($_REQUEST['edad']) : "";
 	$telefono = isset($_REQUEST['telefono']) ? trim($_REQUEST['telefono']) : "";
     $genero = isset($_REQUEST['genero']) ? trim($_REQUEST['genero']) : "";
     $os = isset($_REQUEST['os']) ? trim($_REQUEST['os']) : "";
-    $id_pais = isset($_REQUEST['id_pais']) ? trim($_REQUEST['id_pais']) : "";
+    //$id_pais = isset($_REQUEST['id_pais']) ? trim($_REQUEST['id_pais']) : "";
     
     $campania = new Campania;
     $campania->nombre = $nombre;
@@ -38,7 +37,7 @@
     $campania->ip_cliente = $ip_cliente;
     $campania->mac_ap = $mac_ap;
     $campania->ip_ap = $ip_ap;
-    $campania->id_pais = $id_pais;
+    //$campania->id_pais = $id_pais;
     
     $campania->save();
 

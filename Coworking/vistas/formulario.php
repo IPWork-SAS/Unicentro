@@ -6,10 +6,15 @@
         $_SESSION['i'] = $_REQUEST['i'];
         $lang = $_REQUEST['i'];
     } else {
-        $lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
-        $acceptLang = ['es', 'en']; 
-        $lang = in_array($lang, $acceptLang) ? $lang : 'en';
-        $_SESSION['i'] = $lang;
+        if(isset($_SERVER['HTTP_ACCEPT_LANGUAGE'])) {
+            $lang = substr($_SERVER['HTTP_ACCEPT_LANGUAGE'], 0, 2);
+            $acceptLang = ['es', 'en']; 
+            $lang = in_array($lang, $acceptLang) ? $lang : 'en';
+            $_SESSION['i'] = $lang;
+        } else {
+            $lang = 'es';
+            $_SESSION['i'] = $lang;
+        }        
     }
 
     include_once("../lang/{$lang}.php"); 
@@ -76,23 +81,7 @@
                             <input type="email"  autocomplete="off" required class="form-control form-control-sm" id="email" name="email" placeholder="<?= $lang['email_form'];?>">
                         </div>
                         <div class="form-row">
-                            <div class="form-group col-4">
-                                <select id="id_pais" name="id_pais" class="form-control form-control-sm" required>
-                                    <option selected value=""><?= $lang['indicativo_form'];?></option>
-                                    <?php 
-                                        foreach ($paises as $pais) {
-                                            if( $lang["lang"] == 'es') {
-                                                echo '<option value="'.$pais->id.'">'.$pais->nombre_esp.' (+'.$pais->indicativo.')</option>';
-                                            } else if ($lang['lang'] == 'en') {
-                                                echo '<option value="'.$pais->id.'">'.$pais->nombre_en.' (+'.$pais->indicativo.')</option>';
-                                            } else {
-                                                echo '<option value="'.$pais->id.'">'.$pais->nombre_esp.' (+'.$pais->indicativo.')</option>';
-                                            }                                        
-                                        }
-                                    ?>
-                                </select>
-                            </div>
-                            <div class="form-group col-8">
+                            <div class="form-group col-12">
                                 <input type="tel" oninvalid="this.setCustomValidity('<?= $lang['validacion_celular_form'];?>')"  autocomplete="off" oninput="this.setCustomValidity('')"  class="form-control form-control-sm" id="telefono" name="telefono" placeholder="<?= $lang['celular_form'];?>" minlength="10" maxlength="40" required>
                             </div>                                
                         </div>
@@ -110,11 +99,11 @@
                             </div>
                         </div>
                         <div class="form-group check-terminos">
-                            <div class="form-check">
-                            <input class="form-check-input" type="checkbox" id="gridCheck" required>
-                            <label class="form-check-label" for="gridCheck">
-                                <a href="#popup"><?= $lang['terminos_link'];?></a>
-                            </label>
+                            <div class="custom-control custom-switch">
+                                <input type="checkbox" class="custom-control-input" id="customSwitches" required>
+                                <label class="custom-control-label" for="customSwitches">
+                                    <a href="#popup"><?= $lang['terminos_link'];?></a>
+                                </label>
                             </div>
                         </div>
                         <div class="form-btn">
